@@ -16,9 +16,9 @@ export const usePostLists = () => {
         .catch(error => dispatch({ type: FETCH.FAILURE, error, key: userId }))
     };
 
-    // ComponentDidMount
+    // ComponentDidMount & ComponentDidUpdate
     fetchData();
-  }, [userId]);
+  }, [userId]); // shouldComponentUpdate
 
   return [{ state, setPost }];
 }

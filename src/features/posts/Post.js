@@ -10,7 +10,6 @@ function App() {
   const { data, loading, error } = postSelector(state, page)
 
   const handlePage = (page) => {
-    
     const { isLoaded } = postSelector(state, page);
     setPage(page)
     if(!isLoaded) {
