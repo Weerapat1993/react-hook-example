@@ -18,21 +18,21 @@ export const reducerCreator = (state, action) => {
 
   const setStateWithKeyRequest = (newState) => setStateWithKey({
     loading: true,
-    isReload: false,
+    isLoaded: false,
     error: '',
     ...newState,
   })
 
   const setStateWithKeySuccess = (newState) => setStateWithKey({
     loading: false,
-    isReload: false,
+    isLoaded: true,
     error: '',
     ...newState,
   })
 
   const setStateWithKeyFailure = (newState) => setStateWithKey({
     loading: false,
-    isReload: false,
+    isLoaded: false,
     ...newState,
   })
 

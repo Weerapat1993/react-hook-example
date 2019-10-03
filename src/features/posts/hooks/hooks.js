@@ -6,19 +6,19 @@ import { cofingLogger } from '../../../config/logger';
 
 export const usePostLists = () => {
   const [state, dispatch] = useReducer(cofingLogger(postReducer), initialState);
-  const [search, setSearch] = useState(1);
+  const [userId, setPost] = useState(1);
 
   useEffect(() => {
     const fetchData = () => {
-      dispatch({ type: FETCH.REQUEST, key: search });
-      return axios(`https://jsonplaceholder.typicode.com/posts?userId=${search}`)
-        .then(res => dispatch({ type: FETCH.SUCCESS, data: res.data, key: search }))
-        .catch(error => dispatch({ type: FETCH.FAILURE, error, key: search }))
+      dispatch({ type: FETCH.REQUEST, key: userId });
+      return axios(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        .then(res => dispatch({ type: FETCH.SUCCESS, data: res.data, key: userId }))
+        .catch(error => dispatch({ type: FETCH.FAILURE, error, key: userId }))
     };
 
     // ComponentDidMount
     fetchData();
-  }, [search]); 
+  }, [userId]);
 
-  return [{ state, setSearch }];
+  return [{ state, setPost }];
 }
