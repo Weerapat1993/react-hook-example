@@ -9,11 +9,14 @@ export const usePostLists = () => {
   const [userId, setPost] = useState(1);
 
   useEffect(() => {
+    const fetchDataRequest = () => ({ type: FETCH.REQUEST, key: userId })
+    const fetchDataSuccess = (data) => ({ type: FETCH.SUCCESS, data, key: userId })
+    const fetchDataFailure = (error) => ({ type: FETCH.FAILURE, error, key: userId })
     const fetchData = () => {
-      dispatch({ type: FETCH.REQUEST, key: userId });
+      dispatch(fetchDataRequest());
       return axios(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-        .then(res => dispatch({ type: FETCH.SUCCESS, data: res.data, key: userId }))
-        .catch(error => dispatch({ type: FETCH.FAILURE, error, key: userId }))
+        .then(res => dispatch(fetchDataSuccess(res.data)))
+        .catch(error => dispatch(fetchDataFailure(error)))
     };
 
     // ComponentDidMount & ComponentDidUpdate
