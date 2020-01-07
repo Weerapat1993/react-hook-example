@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from '../Button'
 import { usePrevious } from "../../utils/hooks/usePrevious";
 
 const Countdown = ({ endDate, onRandom, onTimeup }) => {
@@ -48,11 +47,7 @@ const Countdown = ({ endDate, onRandom, onTimeup }) => {
   });
   return timerComponents.length ? (
     <h1>{timerComponents}</h1>
-  ) : (
-    <Button color="#00AA00" onClick={() => onRandom()}>
-      Random
-    </Button>
-  )
+  ) : null
 }
 
 Countdown.defaultProps = {

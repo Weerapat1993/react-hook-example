@@ -5,9 +5,9 @@ import { Pokedex } from './features/pokedex';
 
 const App = () => (
   <Fragment>
-    <Post />
-    <hr />
     <Pokedex />
+    <hr />
+    <Post />
   </Fragment>
   
 )
