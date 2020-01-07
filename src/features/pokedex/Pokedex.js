@@ -87,7 +87,7 @@ const Pokedex = () => {
             <div>
               {data.id ? (
                 <div align="center">
-                  <Height value="100px" align="center">
+                  <Height value="80px" align="center">
                     {!loading && !show ? <Countdown endDate={endDate} onTimeup={() => setShow(true)} /> : null}
                     {show ? (
                       <Button color="#00AA00" onClick={() => handleRandom()}>
@@ -116,13 +116,13 @@ const Pokedex = () => {
           )}
         </Col>
       </Row>
-      <Height value="100px" align="center">
+      {/* <Height value="100px" align="center">
         {show ? (
           <Button color="#00AA00" onClick={() => handleRandom()}>
             Random
           </Button>
         ) : null}
-      </Height>
+      </Height> */}
       <hr />
       <Col>
         <ul>
