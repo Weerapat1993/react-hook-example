@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Button } from '../Button'
+import { usePrevious } from "../../utils/hooks/usePrevious";
 
-const Countdown = ({ endDate }) => {
+const Countdown = ({ endDate, onRandom, onTimeup }) => {
   const calculateTimeLeft = () => {
     const startDate = new Date();
     const difference = +endDate - +startDate;
@@ -14,19 +16,24 @@ const Countdown = ({ endDate }) => {
         seconds: Math.floor((difference / 1000) % 60)
       };
     }
-
     return timeLeft;
   };
 
+  const timerComponents = [];
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+  const isTimeup = Object.keys(timeLeft).length === 0;
+  const prevProps = usePrevious({ isTimeup });
   useEffect(() => {
     setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
+    if(prevProps) {
+      if(prevProps.isTimeup !== isTimeup) {
+        onTimeup()
+      }
+    }
   });
 
-  const timerComponents = [];
 
   Object.keys(timeLeft).forEach(interval => {
     if (!timeLeft[interval]) {
@@ -39,7 +46,17 @@ const Countdown = ({ endDate }) => {
       </span>
     );
   });
-  return timerComponents.length ? <h1>{timerComponents}</h1> : null
+  return timerComponents.length ? (
+    <h1>{timerComponents}</h1>
+  ) : (
+    <Button color="#00AA00" onClick={() => onRandom()}>
+      Random
+    </Button>
+  )
+}
+
+Countdown.defaultProps = {
+  onTimeup: () => null,
 }
 
 export default Countdown;
