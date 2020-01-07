@@ -1,9 +1,15 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Post } from './features/posts'
+import { Pokedex } from './features/pokedex';
 
 const App = () => (
-  <Post />
+  <Fragment>
+    <Post />
+    <hr />
+    <Pokedex />
+  </Fragment>
+  
 )
 
 export default App;
