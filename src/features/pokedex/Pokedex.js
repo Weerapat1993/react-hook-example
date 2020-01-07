@@ -5,9 +5,11 @@ import { useFetchPokemon } from './hooks/hooks';
 import { pokemonSelector } from './hooks/selectors'
 import { Row, Col } from '../../components/Grid';
 import { Button } from '../../components/Button';
+import Countdown from '../../components/Countdown';
 
 const Pokedex = () => {
   const [number, setNumber] = useState(1);
+  const [endDate, setDate] = useState(new Date());
   const [list, setList] = useState([1]); 
   const [{ state, setPokemonNumber }] = useFetchPokemon();
   const { data, loading, error } = pokemonSelector(state, number)
@@ -19,6 +21,13 @@ const Pokedex = () => {
       setList(uniq([ ...list, num]))
       setPokemonNumber(num)
     }
+    handleTime()
+  }
+
+  const handleTime = () => {
+    const endDate = new Date();
+    endDate.setSeconds(endDate.getSeconds() + 32);
+    setDate(endDate)
   }
 
   const handlePokemon = (num) => {
@@ -27,6 +36,7 @@ const Pokedex = () => {
   return (
     <div>
       <h1>Pokedex</h1>
+      <Countdown endDate={endDate} />
       <p align="center">
         <Button color="#00AA00" onClick={() => handleRandom()}>
           Random
