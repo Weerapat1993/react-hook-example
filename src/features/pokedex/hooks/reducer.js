@@ -1,4 +1,4 @@
-import { FETCH } from "./actionTypes";
+import { FETCH_POKEMON } from "./actionTypes";
 import { reducerCreator } from "../../../utils/reducerCreator";
 
 export const initialState = {
@@ -10,11 +10,11 @@ export const postReducer = (state, action) => {
   const { type } = action
   const { setStateWithKeyRequest, setStateWithKeySuccess, setStateWithKeyFailure } = reducerCreator(state, action)
   switch (type) {
-    case FETCH.REQUEST:
+    case FETCH_POKEMON.REQUEST:
       return setStateWithKeyRequest();
-    case FETCH.SUCCESS:
+    case FETCH_POKEMON.SUCCESS:
       return setStateWithKeySuccess({ data: action.data });
-    case FETCH.FAILURE:
+    case FETCH_POKEMON.FAILURE:
       return setStateWithKeyFailure({ error: action.error.message });
     default:
       throw new Error();

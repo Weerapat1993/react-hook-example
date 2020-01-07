@@ -1,3 +1,3 @@
 import { asyncActionTypes } from "../../../utils/asyncActionTypes";
 
-export const FETCH = asyncActionTypes('FETCH')
+export const FETCH_POKEMON = asyncActionTypes('FETCH_POKEMON')
