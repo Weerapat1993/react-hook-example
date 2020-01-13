@@ -1,6 +1,6 @@
 {
   "name": "react-hook-example",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",

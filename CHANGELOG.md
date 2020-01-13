@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/Weerapat1993/react-hook-example/compare/v0.1.2...v0.1.4) (2020-01-13)
+
+
+### Bug Fixes
+
+* Add Test POWH-1234 ([259760b](https://github.com/Weerapat1993/react-hook-example/commit/259760b73816896b4a5ea2ebf450099eb09c1b1b))
+
 ### 0.1.2 (2020-01-13)
 
 
