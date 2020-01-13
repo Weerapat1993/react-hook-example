@@ -7,6 +7,7 @@ const App = () => (
   <Fragment>
     <Pokedex />
     <hr />
+    Test
     <Post />
   </Fragment>
   
